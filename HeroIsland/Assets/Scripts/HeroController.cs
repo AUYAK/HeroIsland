@@ -11,11 +11,8 @@ public class HeroController : MonoBehaviour
     public LayerMask movementMask;
 
     public float maxMovementDistance = 100f;
-    private HeroMotor motor;
-
-
-
     public Interactable focus;
+    private HeroMotor motor;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,53 +23,43 @@ public class HeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //movements
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+            
             if (Physics.Raycast(ray, out hit, maxMovementDistance, movementMask))
             {
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
                 //Movement
-                if (!hit.collider && hit.collider.gameObject.layer == 7) ;
+                if (hit.collider!=null && hit.collider.gameObject.layer == 7 && interactable == null)
                 {
+                    Debug.Log("movement");
                     motor.MoveToPoint(hit.point);
-                    //remove focus from interactable object
+                      //remove focus from interactable object
                     RemoveFocus();
-                }
+                 }
                 //Interaction
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if (interactable != null)
-                {
+                
+                else if (interactable != null){
+                    Debug.Log("interaction");
                     SetFocus(interactable);
                 }
+
             }
 
 
-        }
-        //interactions
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if (interactable != null)
-                {
-                    SetFocus(interactable);
-                }
-            }
         }
     }
 
-    
     void SetFocus(Interactable newfocus)
     {
         focus = newfocus;
+        motor.FollowTarget(newfocus);
     }
     void RemoveFocus()
     {
         focus = null;
+        motor.StopFollowingTarget();
     }
 }
