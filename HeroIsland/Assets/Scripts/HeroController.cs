@@ -21,7 +21,7 @@ public class HeroController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -34,10 +34,11 @@ public class HeroController : MonoBehaviour
                 //Movement
                 if (hit.collider!=null && hit.collider.gameObject.layer == 7 && interactable == null)
                 {
+                    //remove focus from interactable object
+                    RemoveFocus();
+
                     Debug.Log("movement");
                     motor.MoveToPoint(hit.point);
-                      //remove focus from interactable object
-                    RemoveFocus();
                  }
                 //Interaction
                 
@@ -55,11 +56,11 @@ public class HeroController : MonoBehaviour
     void SetFocus(Interactable newfocus)
     {
         focus = newfocus;
-        motor.FollowTarget(newfocus);
+        // motor.FollowTarget(newfocus);
     }
     void RemoveFocus()
     {
         focus = null;
-        motor.StopFollowingTarget();
+        // motor.StopFollowingTarget();
     }
 }

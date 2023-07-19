@@ -24,6 +24,7 @@ public class HeroMotor : MonoBehaviour
     }   
       public void MoveToPoint(Vector3 point)
     {
+        agent.updateRotation = true;
         agent.SetDestination(point);
         //      //stop once reached destination
         // StartCoroutine(WaitUntilReachesTarget());
