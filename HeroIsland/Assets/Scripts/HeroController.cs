@@ -56,11 +56,11 @@ public class HeroController : MonoBehaviour
     void SetFocus(Interactable newfocus)
     {
         focus = newfocus;
-        // motor.FollowTarget(newfocus);
+        motor.FollowTarget(newfocus);
     }
     void RemoveFocus()
     {
         focus = null;
-        // motor.StopFollowingTarget();
+        motor.StopFollowingTarget();
     }
 }

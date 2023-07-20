@@ -5,7 +5,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class HeroMotor : MonoBehaviour
 {
-    private float rotationSpeed = 5f;
+    private float rotationSpeed = 3f;
     Transform target; //target to follow
     NavMeshAgent agent;
     // Start is called before the first frame update
