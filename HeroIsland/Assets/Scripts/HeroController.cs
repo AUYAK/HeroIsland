@@ -36,14 +36,12 @@ public class HeroController : MonoBehaviour
                 {
                     //remove focus from interactable object
                     RemoveFocus();
-
-                    Debug.Log("movement");
                     motor.MoveToPoint(hit.point);
                  }
                 //Interaction
                 
-                else if (interactable != null){
-                    Debug.Log("interaction");
+                else if (interactable != null)
+                {
                     SetFocus(interactable);
                 }
 
@@ -55,11 +53,20 @@ public class HeroController : MonoBehaviour
 
     void SetFocus(Interactable newfocus)
     {
-        focus = newfocus;
+        
+        if(newfocus!=focus)
+        {
+            if(focus!=null) 
+                focus.OnDefocused();
+            focus = newfocus;
+            newfocus.OnFocused(transform);
+        }
         motor.FollowTarget(newfocus);
     }
     void RemoveFocus()
     {
+        if(focus!=null)
+            focus.OnDefocused();
         focus = null;
         motor.StopFollowingTarget();
     }

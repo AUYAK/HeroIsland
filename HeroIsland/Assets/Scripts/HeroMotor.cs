@@ -5,8 +5,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class HeroMotor : MonoBehaviour
 {
-    private float rotationSpeed = 3f;
+    private float rotationSpeed = 2f;
     Transform target; //target to follow
+    Transform viewTarget;// target to look at
     NavMeshAgent agent;
     // Start is called before the first frame update
     void Start()
@@ -27,13 +28,13 @@ public class HeroMotor : MonoBehaviour
         agent.updateRotation = true;
         agent.SetDestination(point);
         //      //stop once reached destination
-        // StartCoroutine(WaitUntilReachesTarget());
     }
     public void FollowTarget(Interactable newTarget)
     {   
         agent.stoppingDistance = newTarget.radius *.9f;
         agent.updateRotation = false;
-        target = newTarget.transform;
+        target = newTarget.interactionTransform;
+        viewTarget = newTarget.GetComponent<Transform>();
     }
 
     public void StopFollowingTarget()
@@ -44,7 +45,9 @@ public class HeroMotor : MonoBehaviour
     }
     void FaceTarget()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        
+        //Identifiing where is the point to look at in case Interactable has interaction point
+        Vector3 direction = (viewTarget.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z)); 
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation,Time.deltaTime * rotationSpeed);
     }
