@@ -9,11 +9,7 @@ public class Interactable : MonoBehaviour
     bool hasInteracted = false;
     Transform hero;
 
-    private void Start() {
-        if (interactionTransform==null)
-        interactionTransform = transform;
-    }
-    public virtual void Interact()
+       public virtual void Interact()
     {
         //This method is ment to be overwritten
          Debug.Log ("Interacting with:" + transform.name);  
@@ -45,6 +41,9 @@ public class Interactable : MonoBehaviour
     }
     void OnDrawGizmosSelected()
     {
+        if (interactionTransform==null)
+        interactionTransform = transform;
+        
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(interactionTransform.position,radius);
     }
