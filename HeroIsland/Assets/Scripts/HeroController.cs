@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(HeroMotor))]
 public class HeroController : MonoBehaviour
@@ -23,6 +24,9 @@ public class HeroController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if(EventSystem.current.IsPointerOverGameObject())
+        return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);

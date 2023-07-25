@@ -19,6 +19,8 @@ public class Inventory : MonoBehaviour
     }
     #endregion
 
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
     public int maxSpace = 20;
     public List<Item> items = new List<Item>();
 
@@ -26,18 +28,22 @@ public class Inventory : MonoBehaviour
     {
         if (!item.isDefault)
         {
-            if(items.Count >= maxSpace) 
+            if (items.Count >= maxSpace)
             {
                 Debug.Log("Not enough room");
                 return false;
             }
             items.Add(item);
+            if (onItemChangedCallback != null)
+                onItemChangedCallback.Invoke();
         }
         return true;
     }
     public void Remove(Item item)
     {
         items.Remove(item);
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
     }
 
 
