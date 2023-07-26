@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beadd3797739c754e845e63cdf773ece, type: 3}
-  m_Name: HelmetOfProtection
+  m_Name: PlateLegs
   m_EditorClassIdentifier: 
   name: Helmet Of Protection
   icon: {fileID: 21300000, guid: 379c6e2a08e0fb040b9faafd33da7296, type: 3}
