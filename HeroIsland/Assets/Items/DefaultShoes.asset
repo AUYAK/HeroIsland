@@ -15,8 +15,8 @@ MonoBehaviour:
   name: DefaultShoes
   icon: {fileID: 0}
   isDefault: 1
-  equipSlot: 0
-  mesh: {fileID: 2085228473214118737, guid: 42aff388ff117ce438544bb0a6772f67, type: 3}
+  equipSlot: 5
+  mesh: {fileID: 1788646740286583543, guid: 42aff388ff117ce438544bb0a6772f67, type: 3}
   armorModifier: 0
   damageModifier: 0
   coveredMeshRegions: 
