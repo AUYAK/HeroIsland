@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4668335735427323910
+--- !u!1 &8025478550572390624
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1846471961483955606}
-  - component: {fileID: 5175202108381134966}
+  - component: {fileID: 3906455763646827888}
+  - component: {fileID: 7528745632205570192}
   m_Layer: 0
   m_Name: Shirt
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1846471961483955606
+--- !u!4 &3906455763646827888
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4668335735427323910}
+  m_GameObject: {fileID: 8025478550572390624}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: -0.0033217564, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &5175202108381134966
+--- !u!137 &7528745632205570192
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4668335735427323910}
+  m_GameObject: {fileID: 8025478550572390624}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -115,6 +115,6 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.0009223239, y: 0.0034248768, z: -0.0003587401}
-    m_Extent: {x: 0.002764188, y: 0.0036436687, z: 0.0017664467}
+    m_Center: {x: 0.0000000020954758, y: 0.0034248757, z: -0.00035873975}
+    m_Extent: {x: 0.0036865126, y: 0.003643668, z: 0.0017664471}
   m_DirtyAABB: 0
