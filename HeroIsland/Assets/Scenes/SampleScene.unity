@@ -1563,7 +1563,7 @@ GameObject:
   - component: {fileID: 415529099}
   - component: {fileID: 415529101}
   - component: {fileID: 415529100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1985,7 +1985,9 @@ GameObject:
   - component: {fileID: 548422010}
   - component: {fileID: 548422008}
   - component: {fileID: 548422012}
-  m_Layer: 0
+  - component: {fileID: 548422014}
+  - component: {fileID: 548422013}
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2041,7 +2043,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!4 &548422011
 Transform:
@@ -2073,6 +2075,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   lookRadius: 10
+--- !u!114 &548422013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548422007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8175bec34101b994e9ffd47dc2e58064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 40
+  damage:
+    baseValue: 5
+  armor:
+    baseValue: 3
+--- !u!114 &548422014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548422007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2582a1fc4011844b544920287ced80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 4
+  interactionTransform: {fileID: 548422011}
 --- !u!1001 &580939006
 PrefabInstance:
   m_ObjectHideFlags: 0

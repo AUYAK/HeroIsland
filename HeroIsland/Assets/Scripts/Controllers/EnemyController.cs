@@ -17,16 +17,25 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         float distance = 0;
-        Transform closestHero = ClosestHeroInAttackRange(out distance);
-        if(closestHero != null)
-        agent.SetDestination(closestHero.position);
-        if(distance<=agent.stoppingDistance)
+        target = ClosestHeroInAttackRange(out distance);
+        if(target != null){        
+        if(distance<=lookRadius)
         {
-            //Attack the target;
-            
+            agent.SetDestination(target.position);
+            if(distance<=agent.stoppingDistance)
+            {
+                //AttackTarget
+                FaceTarget();
+            }      
+        }
         }
     }
-
+    private void FaceTarget()
+    {
+        Vector3 directionToTarget = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(directionToTarget.x,0,directionToTarget.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime *5f);
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
